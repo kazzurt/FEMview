@@ -21,9 +21,14 @@ jobs:
           path: MechFEA
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12.11"
+          python-version: "3.12"
       - run: python -m pip install uv
-      - run: ./setup.ps1
+      - name: Install exact standalone interpreter
+        run: uv python install 3.12.11
+      - name: Install pinned project environment
+        run: |
+          $python312 = (uv python find 3.12.11).Trim()
+          ./setup.ps1 -Python $python312
         working-directory: FEMview
       - run: ./.venv/Scripts/python.exe -m pytest -q
         working-directory: FEMview
