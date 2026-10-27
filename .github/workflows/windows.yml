@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: kazzurt/MechFEA
-          ref: 1f59407fde6fd073cb39de07c859f0fc92225e5f
+          ref: 0690840e21bc11a86d94eb365ce35d4c1aed27a3
           path: MechFEA
       - uses: actions/setup-python@v5
         with:
@@ -29,6 +29,9 @@ jobs:
         run: |
           $python312 = (uv python find 3.12.11).Trim()
           ./setup.ps1 -Python $python312
+        working-directory: FEMview
+      - name: Configure hosted software OpenGL
+        run: ./tools/ci-software-opengl.ps1
         working-directory: FEMview
       - run: ./.venv/Scripts/python.exe -m pytest -q
         working-directory: FEMview
