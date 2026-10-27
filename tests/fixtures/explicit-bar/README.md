@@ -1,0 +1,1 @@
+Synthetic CalculiX analytical pretension bar, 2026-10-18. Original numerical files unchanged; run JSON machine-specific paths normalized. This fixture tests readers, rendering and solver progress, not assembly acceptance.

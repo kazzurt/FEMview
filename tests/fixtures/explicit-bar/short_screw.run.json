@@ -1,0 +1,33 @@
+{
+  "status": "completed",
+  "input_path": "short_screw.inp",
+  "executable": "ccx.exe",
+  "returncode": 0,
+  "elapsed_s": 0.5779999999795109,
+  "expected_steps": 2,
+  "completed_steps": [
+    1,
+    2
+  ],
+  "errors": [],
+  "warnings": [],
+  "solver_version": "2.23",
+  "input_sha256": "078a3f0307259951d981ccfa31035724c075498bec269a5de85a1b130fce0fd4",
+  "executable_sha256": "27a9426a1ee2f72c38fbe892e0ffaf38e14867628ffd0235770261b6f3ec9c5f",
+  "peak_rss_bytes": 12955648,
+  "threads": 1,
+  "accepted": false,
+  "recorded_utc": "2026-10-18T05:12:19.697966+00:00",
+  "units": "N-mm-MPa",
+  "expected_step_times": [
+    1.0,
+    1.0
+  ],
+  "expected_solver_version": "2.23",
+  "command": [
+    "ccx.exe",
+    "-i",
+    "short_screw"
+  ],
+  "publication_note": "Synthetic analytical bar; only machine-specific paths normalized for portability. Raw numerical files retained unchanged."
+}

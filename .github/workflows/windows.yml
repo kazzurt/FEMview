@@ -1,0 +1,29 @@
+name: Windows viewer regression
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: windows-2022
+    timeout-minutes: 25
+    env:
+      PYTHONUTF8: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+      QT_QPA_PLATFORM: offscreen
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: FEMview
+      - uses: actions/checkout@v4
+        with:
+          repository: kazzurt/MechFEA
+          ref: 1f59407fde6fd073cb39de07c859f0fc92225e5f
+          path: MechFEA
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.11"
+      - run: python -m pip install uv
+      - run: ./setup.ps1
+        working-directory: FEMview
+      - run: ./.venv/Scripts/python.exe -m pytest -q
+        working-directory: FEMview
